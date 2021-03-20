@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "./Token";
 
 export class ApiCalls {
-    apiUrl = 'http://localhost:8080/api';
+    apiUrl = process.env.API_ENDPOINT || 'http://localhost:8080/api';
     authCall(endpoint, body) {
         return new Promise((res, rej) => {
             axios.post(`${this.apiUrl}/user/${endpoint}`, JSON.stringify(body), {
